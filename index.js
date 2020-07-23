@@ -189,6 +189,9 @@ var vueTouchEvents = {
 
         function triggerEvent(e, $el, eventType, param) {
             var $this = $el.$$touchObj;
+	    if (typeof $this === 'undefined') {
+                $this = buildTouchObj($el);
+	    }
 
             // get the callback list
             var callbacks = $this.callbacks[eventType] || [];
