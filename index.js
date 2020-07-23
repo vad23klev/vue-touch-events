@@ -78,9 +78,9 @@ var vueTouchEvents = {
             $this.touchStartTime = event.timeStamp;
 
             // Trigger touchhold event after `touchHoldTolerance`ms
-            $this.touchHoldTimer = setTimeout(function() {
-                triggerEvent(event, $el, 'touchhold');
-            }, $this.options.touchHoldTolerance);
+            // $this.touchHoldTimer = setTimeout(function() {
+            //     triggerEvent(event, $el, 'touchhold');
+            // }, $this.options.touchHoldTolerance);
 
             triggerEvent(event, this, 'start');
         }
@@ -189,9 +189,9 @@ var vueTouchEvents = {
 
         function triggerEvent(e, $el, eventType, param) {
             var $this = $el.$$touchObj;
-	    if (typeof $this === 'undefined') {
+            if (typeof $this === 'undefined') {
                 $this = buildTouchObj($el);
-	    }
+            }
 
             // get the callback list
             var callbacks = $this.callbacks[eventType] || [];
